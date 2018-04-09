@@ -14,6 +14,7 @@ class Book implements GormEntity<Book> {
     static mapping = {
         table: 'books'
     }
+    
     static constraints = {
         title blank: false
     }
