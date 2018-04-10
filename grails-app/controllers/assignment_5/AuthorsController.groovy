@@ -114,4 +114,26 @@ class AuthorsController extends RestfulController {
         author.addToBooks(book).save()
         render author as JSON
     }
+
+    /**
+     * updates author given body of request
+     *
+     * @return newly updated author
+     */
+    def updateAuthor() {
+        def mapper = new ObjectMapper()
+        def author = Author.get(params.id)
+        
+        def temp = mapper.readValue(request.reader.text, Author.class)
+
+        if (temp.first_name != null)
+            author.first_name = temp.first_name
+
+        if (temp.last_name != null)
+            author.last_name = temp.last_name
+        
+        author.save(failOnError: true)
+
+        render author as JSON
+    }
 }

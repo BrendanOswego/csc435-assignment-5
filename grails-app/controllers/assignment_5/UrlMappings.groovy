@@ -8,6 +8,8 @@ class UrlMappings {
         delete "/authors/$authorID/books/$bookID"(controller: 'authors', action: 'deleteBook')
         post "/authors/$id/books"(controller: 'authors', action: 'addBook')
         post "/authors/$authorID/books/$bookID"(controller: 'authors', action: 'addBookByID')
+        put "/authors/$id"(controller: 'authors', action: 'updateAuthor')
+        put "/books/$id"(controller: 'books', action: 'updateBook')
 
         delete "/$controller/$id(.$format)?"(action:"delete")
         get "/$controller(.$format)?"(action:"index")
